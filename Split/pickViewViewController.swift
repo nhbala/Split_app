@@ -35,7 +35,10 @@ class pickViewViewController: UITableViewController {
     
     
     override func viewDidLoad() {
-        print("hell11111o")
+        print(taxVal.itemPrice)
+        for item in finalValues{
+            print(item.itemName)
+        }
         
     }
         

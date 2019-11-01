@@ -28,7 +28,7 @@ class ScanController: UIViewController, VNDocumentCameraViewControllerDelegate {
         var removeIndex = -1
         for (index, element) in self.values.enumerated(){
             if element.itemName.contains("Tax"){
-                self.taxVal = element
+                self.taxVal.itemPrice = element.itemPrice
                 removeIndex = index
             }
         }
