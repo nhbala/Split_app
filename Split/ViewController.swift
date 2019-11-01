@@ -11,11 +11,33 @@ import Vision
 import VisionKit
 
 
-class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
+class ScanController: UIViewController, VNDocumentCameraViewControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     
+    var values = [Item]()
+    var taxVal = Item(itemName: "tax", itemPrice: 0.0, itemAmount: 0, itemShared: true)
+    
+    @IBAction func nextButton(_ sender: Any) {
+        performSegue(withIdentifier: "sharing", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! pickViewViewController
+        var removeIndex = -1
+        for (index, element) in self.values.enumerated(){
+            if element.itemName.contains("Tax"){
+                self.taxVal = element
+                removeIndex = index
+            }
+        }
+        if removeIndex != -1{
+            self.values.remove(at: removeIndex)
+        }
+        vc.finalValues = self.values
+        vc.taxVal = self.taxVal
+    }
     var textRecognitionRequest = VNRecognizeTextRequest(completionHandler: nil)
     private let textRecognitionWorkQueue = DispatchQueue(label: "MyVisionScannerQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
     
@@ -96,12 +118,28 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
                 }
                 currIndex += 1
             }
-            
+            self.values = [Item]()
+            let finalText = ""
             for possiblePrice in finalLines{
-                print(possiblePrice.lineArray)
+                let currItem = Item(itemName: "", itemPrice: 0.0, itemAmount: 1, itemShared: false)
+                var addFlag = true
+                for part in possiblePrice.lineArray{
+                    if part.range(of: #"(?=.*?\d)^\$?(([1-9]\d{0,2}(,\d{3})*)|\d+)?(\.\d{1,2})?$"#, options: .regularExpression) != nil{
+                        currItem.itemPrice = Float(part) ?? 0
+                    }else{
+                        if part.contains("Amount") || part.contains("Subtotal") || part.contains("Total"){
+                            addFlag = false
+                        }
+                        currItem.itemName += part
+                    }
+                }
+                if addFlag == true{
+                   self.values.append(currItem)
+                }
             }
+            
             DispatchQueue.main.async {
-                self.textView.text = detectedText
+                self.textView.text = finalText
                 self.textView.flashScrollIndicators()
 
             }
@@ -113,6 +151,7 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     private func processImage(_ image: UIImage) {
         imageView.image = image
         recognizeTextInImage(image)
+        
     }
     
     private func recognizeTextInImage(_ image: UIImage) {

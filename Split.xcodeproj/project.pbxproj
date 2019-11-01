@@ -14,9 +14,10 @@
 		93702B232367AC7900CACDCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93702B212367AC7900CACDCE /* LaunchScreen.storyboard */; };
 		93702B2E2367AC7900CACDCE /* SplitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93702B2D2367AC7900CACDCE /* SplitTests.swift */; };
 		93702B392367AC7900CACDCE /* SplitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93702B382367AC7900CACDCE /* SplitUITests.swift */; };
-		93702B472367AFC200CACDCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93702B462367AFC200CACDCE /* Main.storyboard */; };
 		93702B4B2368A4D400CACDCE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93702B4A2368A4D400CACDCE /* Item.swift */; };
 		93702B4D2368B0BD00CACDCE /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93702B4C2368B0BD00CACDCE /* Line.swift */; };
+		93731109236B874C0090522C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93731108236B874C0090522C /* Main.storyboard */; };
+		9373110B236B8AFA0090522C /* pickViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373110A236B8AFA0090522C /* pickViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +51,10 @@
 		93702B342367AC7900CACDCE /* SplitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SplitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93702B382367AC7900CACDCE /* SplitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitUITests.swift; sourceTree = "<group>"; };
 		93702B3A2367AC7900CACDCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93702B462367AFC200CACDCE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		93702B4A2368A4D400CACDCE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		93702B4C2368B0BD00CACDCE /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		93731108236B874C0090522C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9373110A236B8AFA0090522C /* pickViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pickViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,15 +105,16 @@
 		93702B152367AC7700CACDCE /* Split */ = {
 			isa = PBXGroup;
 			children = (
-				93702B462367AFC200CACDCE /* Main.storyboard */,
 				93702B162367AC7700CACDCE /* AppDelegate.swift */,
 				93702B182367AC7700CACDCE /* SceneDelegate.swift */,
 				93702B1A2367AC7700CACDCE /* ViewController.swift */,
 				93702B1F2367AC7900CACDCE /* Assets.xcassets */,
+				93731108236B874C0090522C /* Main.storyboard */,
 				93702B212367AC7900CACDCE /* LaunchScreen.storyboard */,
 				93702B242367AC7900CACDCE /* Info.plist */,
 				93702B4A2368A4D400CACDCE /* Item.swift */,
 				93702B4C2368B0BD00CACDCE /* Line.swift */,
+				9373110A236B8AFA0090522C /* pickViewViewController.swift */,
 			);
 			path = Split;
 			sourceTree = "<group>";
@@ -238,7 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93702B472367AFC200CACDCE /* Main.storyboard in Resources */,
+				93731109236B874C0090522C /* Main.storyboard in Resources */,
 				93702B232367AC7900CACDCE /* LaunchScreen.storyboard in Resources */,
 				93702B202367AC7900CACDCE /* Assets.xcassets in Resources */,
 			);
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9373110B236B8AFA0090522C /* pickViewViewController.swift in Sources */,
 				93702B4B2368A4D400CACDCE /* Item.swift in Sources */,
 				93702B1B2367AC7700CACDCE /* ViewController.swift in Sources */,
 				93702B172367AC7700CACDCE /* AppDelegate.swift in Sources */,

@@ -12,9 +12,11 @@ class Item{
     var itemName: String
     var itemPrice: Float
     var itemAmount: Int
-    init(itemName: String, itemPrice: Float, itemAmount: Int) {
+    var itemShared: Bool
+    init(itemName: String, itemPrice: Float, itemAmount: Int, itemShared: Bool) {
         self.itemName = itemName
         self.itemPrice = itemPrice
         self.itemAmount = itemAmount
+        self.itemShared = itemShared
     }
 }
